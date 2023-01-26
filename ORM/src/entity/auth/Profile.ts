@@ -14,14 +14,18 @@ export class Profile {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+  @Column({ unique: true })
+  username: string;
+
+  @Column({ nullable: true, default: null })
   first_name: string;
 
-  @Column()
+  @Column({ nullable: true, default: null })
   last_name: string;
 
-  @Column()
-  age: number;
+  @Column({ default: '' })
+  avatar: string;
+
 
   @Column({ default: false })
   subscription_active: boolean;
